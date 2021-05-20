@@ -56,6 +56,7 @@ async function start() {
   console.log('下载代码完毕')
   // 替换变量
   await changeFile();
+  console.log(' KEY: '+KEY+'\n DualKey: ' + DualKey + '\n OtherKey: '+OtherKey)
   console.log('替换变量完毕')
   // 执行
   await exec("node JD_DailyBonus.js >> result.txt");
