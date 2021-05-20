@@ -11,6 +11,7 @@ const download = require('download');
 const KEY = process.env.JD_COOKIE;
 const serverJ = process.env.PUSH_KEY;
 const DualKey = process.env.JD_COOKIE_2;
+const OtherKey = process.env.JD_COOKIE_OTHERS;
 
 
 async function downFile () {
@@ -24,6 +25,9 @@ async function changeFile () {
    content = content.replace(/var Key = ''/, `var Key = '${KEY}'`);
    if (DualKey) {
     content = content.replace(/var DualKey = ''/, `var DualKey = '${DualKey}'`);
+   }
+   if (OtherKey) {
+    content = content.replace(/var OtherKey = ''/, `var OtherKey = '${OtherKey}'`);
    }
    await fs.writeFileSync( './JD_DailyBonus.js', content, 'utf8')
 }
